@@ -199,6 +199,7 @@ public class ExamSheetResource {
                         int nbreFeuilleParCopie = Integer
                                 .valueOf("" + ((List) param.get("nbreFeuilleParCopie")).get(0));
                         int numberPagesInScan = Integer.valueOf("" + ((List) param.get("numberPagesInScan")).get(0));
+
                         if (nbreFeuilleParCopie > 0 && numberPagesInScan > 0
                                 && numberPagesInScan % nbreFeuilleParCopie == 0) {
                             try {
