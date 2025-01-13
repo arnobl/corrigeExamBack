@@ -119,6 +119,11 @@ public class ExamSheetService {
                         this.persistOrUpdate(dto);
                     }
                 }
+                for (ExamSheet e: ExamSheet.findExamSheetByScanWithoutMinusOne(scanId).list()){
+                    if (e.pagemax>=pageInScan){
+                        e.delete();
+                    }
+                }
             nbrpage =   ExamSheet.findExamSheetByScanWithoutMinusOne(scanId).count();
             if (nbrpage == pageInScan/pageInTemplate){
                     return new Paged<>(ExamSheet.findExamSheetByScan(scanId).page(page))
